@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Одностраничный сайт с отслеживанием GA4</title>
+    <link rel="stylesheet" href="styles.css">
+    <script async src="https://www.googletagmanager.com/gtag/js?id=YOUR_GA4_MEASUREMENT_ID"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'YOUR_GA4_MEASUREMENT_ID');
+
+        // Отслеживание кликов по кнопкам
+        function trackButtonEvent(buttonName) {
+            gtag('event', 'button_click', {
+                'event_category': 'Button',
+                'event_label': buttonName
+            });
+        }
+
+        // Отслеживание отправки формы
+        function trackFormSubmission() {
+            gtag('event', 'form_submission', {
+                'event_category': 'Form',
+                'event_label': 'Contact Form'
+            });
+        }
+    </script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        header {
+            background: #35424a;
+            color: #ffffff;
+            padding: 20px 0;
+            text-align: center;
+        }
+        section {
+            margin: 20px;
+            padding: 20px;
+            background: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        button {
+            margin-top: 10px;
+            padding: 10px 15px;
+            background: #5cb85c;
+            border: none;
+            color: white;
+            cursor: pointer;
+        }
+        button:hover {
+            background: #4cae4c;
+        }
+        form {
+            margin: 20px 0;
+        }
+        input, textarea {
+            width: 100%;
+            margin: 10px 0;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Добро пожаловать на наш сайт!</h1>
+    </header>
+    <section>
+        <h2>Отслеживание событий GA4</h2>
+        <button onclick="trackButtonEvent('Начать');">Начать</button>
+        <button onclick="trackButtonEvent('Узнать больше');">Узнать больше</button>
+    </section>
+    <section>
+        <h2>Форма обратной связи</h2>
+        <form onsubmit="trackFormSubmission();">
+            <input type="text" placeholder="Ваше имя" required>
+            <textarea placeholder="Ваше сообщение" required></textarea>
+            <button type="submit">Отправить</button>
+        </form>
+    </section>
+    <section>
+        <h2>Тестирование сценариев отслеживания</h2>
+        <p>Здесь вы можете протестировать различные события и сценарии отслеживания.</p>
+    </section>
+</body>
+</html>
