@@ -6,28 +6,15 @@
     <title>Одностраничный сайт с отслеживанием GA4</title>
     <link rel="stylesheet" href="styles.css">
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-82VLSY8F9D"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'G-82VLSY8F9D');
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-82VLSY8F9D"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
 
-        // Отслеживание кликов по кнопкам
-        function trackButtonEvent(buttonName) {
-            gtag('event', 'button_click', {
-                'event_category': 'Button',
-                'event_label': buttonName
-            });
-        }
-
-        // Отслеживание отправки формы
-        function trackFormSubmission() {
-            gtag('event', 'form_submission', {
-                'event_category': 'Form',
-                'event_label': 'Contact Form'
-            });
-        }
-    </script>
+  gtag('config', 'G-82VLSY8F9D');
+</script>
     <style>
         body {
             font-family: Arial, sans-serif;
